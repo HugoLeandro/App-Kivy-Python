@@ -21,6 +21,15 @@
         ScrollView:
             pos_hint: {"right": 1, "top": 0.75 }
             size_hint: 1, 0.63
+            GridLayout:
+                cols: 1
+                id: lista_vendas
+
+                # Scroll vertical                   # --- Scroll Horizontal ---
+                size_hint_y: None                   # ---> size_hint_x
+                height: self.minimum_height          # ---> width: self.minimum_width
+                row_default_height: "90dp"          # ---> column_default_width: "90dp"
+                row_force_default: True             # ---> column_force_default: True
 
         # 3 Botões da Homepage
         GridLayout:
