@@ -6,22 +6,28 @@
                 pos: self.pos
                 source: "icones/bg1.jpg"
         Label:
-
-            pos_hint:{"right": 0.85,"top": 0.95}
+            canvas.before:
+                Rectangle:
+                    pos: self.pos
+                    size: self.size
+                    source: "icones/botao_fino1.png"
+            pos_hint: {"right": 0.85, "top": 0.95}
             size_hint: 0.7, 0.2
             bold: True
             text: "Seu ID Único: 1"
             id: id_vendedor
+
+
 
         # Mudar Foto de Perfil
         ImageButton:
             pos_hint: {"right": 0.5, "top": 0.7}
             size_hint: 0.5, 0.15
             source: "icones/foto_perfil.png"
-            on_release: print("Ir para Tela Mudar Foto Perfil")
+            on_release: app.mudar_tela("fotoperfilpage")
         LabelButton:
             text: "Mudar Foto de Perfil"
-            on_release: print("Ir para Tela Mudar Foto Perfil")
+            on_release: app.mudar_tela("fotoperfilpage")
             pos_hint: {"right": 0.9, "top": 0.7}
             size_hint: 0.5, 0.15
 
@@ -30,21 +36,22 @@
             pos_hint: {"right": 0.5, "top": 0.5}
             size_hint: 0.5, 0.15
             source: "icones/adicionar_vendedor.png"
-            on_release: print("Adicionar Vendedor")
+            on_release: app.mudar_tela("adicionarvendedorpage")
         LabelButton:
             text: "Adicionar Vendedor"
-            on_release: print("Adicionar Vendedor")
+            on_release: app.mudar_tela("adicionarvendedorpage")
             pos_hint: {"right": 0.9, "top": 0.5}
             size_hint: 0.5, 0.15
+
        #Ver Todas as Vendas
         ImageButton:
             pos_hint: {"right": 0.5, "top": 0.3}
             size_hint: 0.5, 0.15
             source: "icones/vendas_empresa.png"
-            on_release: print("Adicionar Vendedor")
+            on_release: app.mudar_tela("todasvendaspage")
         LabelButton:
             text: "Ver todas as Vendas"
-            on_release: print("Ver todas as Vendas")
+            on_release: app.mudar_tela("todasvendaspage")
             pos_hint: {"right": 0.9, "top": 0.3}
             size_hint: 0.5, 0.15
 
@@ -54,7 +61,7 @@
             size_hint: 1, 0.12
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("#FD9029")
+                    rgb: utils.get_color_from_hex("#FF7C06")
                 Rectangle:
                     size: self.size
                     pos: self.pos
