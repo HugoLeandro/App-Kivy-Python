@@ -4,17 +4,18 @@
             Rectangle:
                 size: self.size
                 pos: self.pos
-                source: "icones/bg1.jpg"
+                source: "icones/b2g11.jpg"
         Label:
             canvas.before:
-                Rectangle:
-                    pos: self.pos
-                    size: self.size
-                    source: "icones/botao_fino1.png"
+                #Rectangle:
+                   # pos: self.pos
+                   # size: self.size
+                    #source: "icones/botao_fino1.png"
             pos_hint: {"right": 0.85, "top": 0.95}
             size_hint: 0.7, 0.2
             text: "Total de Vendas: R$ 200,00"
             id: id_total_vendas
+            bold: True
             markup: True
 
         # Lista de Vendas
@@ -30,6 +31,7 @@
                 height: self.minimum_height          # ---> width: self.minimum_width
                 row_default_height: "90dp"          # ---> column_default_width: "90dp"
                 row_force_default: True             # ---> column_force_default: True
+                spacing: 2, 2
 
         # 3 Botões da Homepage
         GridLayout:
@@ -38,7 +40,7 @@
             size_hint: 1, 0.12
             canvas:
                 Color:
-                    rgb: utils.get_color_from_hex("#DA9302")
+                    rgb: utils.get_color_from_hex("#040C23")
                 Rectangle:
                     size: self.size
                     pos: self.pos
