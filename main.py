@@ -7,11 +7,9 @@ from telas import *
 from botoes import *
 
 
-
-
 GUI = Builder.load_file("main.kv")
 class MainApp(App):
-    id_usuario = 2
+    id_usuario = 1
 
 
     def build(self):
