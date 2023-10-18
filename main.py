@@ -2,6 +2,8 @@ from kivy.app import App
 from kivy.lang import Builder
 import requests
 from bannervenda import BannerVenda
+import  os
+
 
 from telas import *
 from botoes import *
@@ -16,7 +18,13 @@ class MainApp(App):
         return GUI
 
     def on_start(self):
+        arquivos = os.listdir('icones/fotos_perfil')
+        for foto in arquivos:
+            print(foto)
+        self.carregar_info_usuario()
 
+
+    def carregar_info_usuario(self):
         # Pegar informações do usuario
         requisicao = requests.get(f"https://aplicativovendas-af678-default-rtdb.firebaseio.com/{self.id_usuario}.json")
         requisicao_dic = requisicao.json()
@@ -40,6 +48,7 @@ class MainApp(App):
 
         except:
             pass
+
 
     def mudar_tela(self, id_tela):
         print(id_tela)
