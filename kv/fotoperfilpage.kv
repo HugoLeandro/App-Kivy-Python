@@ -7,13 +7,14 @@
                 source: "icones/b2g11.jpg"
         Label:
             pos_hint: {"right": 0.85, "top": 0.95}
-            size_hint: 0.7, 0.2
+            size_hint: 0.7, 0.1
             bold: True
             text: "Selecione sua Foto de Perfil"
         ScrollView:
-            pos_hint:
-            size_hint:
+            pos_hint: {"right": 0.9, "top": 0.85}
+            size_hint: 0.8, 0.73
             GridLayout:
+                cols: 3
                 id:lista_fotos_perfil
                 # Scroll vertical                   # --- Scroll Horizontal ---
                 size_hint_y: None                   # ---> size_hint_x
@@ -21,8 +22,6 @@
                 row_default_height: "90dp"          # ---> column_default_width: "90dp"
                 row_force_default: True             # ---> column_force_default: True
                 spacing: 5, 5
-
-
 
         # Botao Voltar
         FloatLayout:
