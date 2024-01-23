@@ -2,8 +2,8 @@ from kivy.app import App
 from kivy.lang import Builder
 import requests
 from bannervenda import BannerVenda
-import  os
-
+import os
+from functools import partial
 
 from telas import *
 from botoes import *
@@ -22,7 +22,7 @@ class MainApp(App):
         pagina_fotoperfil = self.root.ids["fotoperfilpage"]
         lista_fotos = pagina_fotoperfil.ids["lista_fotos_perfil"]
         for foto in arquivos:
-            imagem = ImageButton(source=f"icones/fotos_perfil/{foto}", on_release=self.mudar_foto_perfil)
+            imagem = ImageButton(source=f"icones/fotos_perfil/{foto}", on_release=partial(self.mudar_foto_perfil, foto))
             lista_fotos.add_widget(imagem)
         # carrega as infos do usuário
         self.carregar_info_usuario()
@@ -60,9 +60,16 @@ class MainApp(App):
         gerenciador_telas = self.root.ids["screen_manager"]
         gerenciador_telas.current = id_tela
 
-    def mudar_foto_perfil(self, *args):
-        print("mudarfotoperfil")
+    def mudar_foto_perfil(self, foto, *args):
+        foto_perfil = self.root.ids['foto_perfil']
+        foto_perfil.source = f"icones/fotos_perfil/{foto}"
+        info = f'{{"avatar":"{foto}"}}'
+        requisicao =  requests.patch(f"https://aplicativovendas-af678-default-rtdb.firebaseio.com/{self.id_usuario}.json",
+                                     data=info)
+
+        print(requisicao.json())
 
 MainApp().run()
+
 
 
